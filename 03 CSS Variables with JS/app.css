@@ -5,7 +5,7 @@
 }
 
 :root {
-  --base: lightblue;
+  --base: blue;
   --spacing: 10px;
   --blur: 10px;
 }
@@ -29,23 +29,20 @@ h1 {
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: row;
-  justify-content: space-evenly;
-  margin-top: 2em;
+  margin-top: 3em;
 }
 
 label {
   font-size: 24px;
   margin-right: 0.5em;
+  margin-left: 1em;
 }
-
-/* input[type="range"] {
-  color: none !important;
-} */
 
 img {
   margin-top: 2em;
-  max-width: 80vw;
+  height: 90vh;
   object-fit: contain;
   padding: var(--spacing);
   background: var(--base);

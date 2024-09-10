@@ -8,15 +8,23 @@
   </head>
   <body>
     <h1>Update CSS Variables with <span class="highlight">JS</span></h1>
-
+    <p>
+      Use the Spacing, Blur, and Base Color tabs to make changes to the page
+    </p>
     <div class="controls">
       <div>
         <label for="spacing">Spacing:</label>
-        <input type="range" min="10" max="200" />
+        <input
+          type="range"
+          min="10"
+          max="200"
+          name="spacing"
+          data-sizing="px"
+        />
       </div>
       <div>
         <label for="blur">Blur:</label>
-        <input type="range" name="blur" min="0" max="25" />
+        <input type="range" name="blur" min="0" max="25" data-sizing="px" />
       </div>
       <div>
         <label for="base">Base Color</label>
