@@ -18,6 +18,4 @@ const time = function () {
   //   console.log(`${hour}:${minute}:${second}`);
 };
 
-time();
-
 setInterval(time, 1000);
