@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drum Machine</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <div class="drum-container">
+      <div class="title">
+        <h1>Drum Machine</h1>
+        <p class="subtitle">
+          Press the corresponding key on your keyboard to play the drums ( press
+          'a' for clap, 's' for hi-hat and so on...)
+        </p>
+      </div>
+      <div class="key-wrapper">
+        <div data-key="a" class="drum-key">
+          <kbd class="keystroke">A</kbd>
+          <span class="sound">CLAP</span>
+        </div>
+        <div data-key="s" class="drum-key">
+          <kbd class="keystroke">S</kbd>
+          <span class="sound">HI - HAT</span>
+        </div>
+        <div data-key="d" class="drum-key">
+          <kbd class="keystroke">D</kbd>
+          <span class="sound">KICK</span>
+        </div>
+        <div data-key="f" class="drum-key">
+          <kbd class="keystroke">F</kbd>
+          <span class="sound">OPEN - HAT</span>
+        </div>
+        <div data-key="g" class="drum-key">
+          <kbd class="keystroke">G</kbd>
+          <span class="sound">BOOM</span>
+        </div>
+        <div data-key="h" class="drum-key">
+          <kbd class="keystroke">H</kbd>
+          <span class="sound">RIDE</span>
+        </div>
+        <div data-key="j" class="drum-key">
+          <kbd class="keystroke">J</kbd>
+          <span class="sound">SNARE</span>
+        </div>
+        <div data-key="k" class="drum-key">
+          <kbd class="keystroke">K</kbd>
+          <span class="sound">TOM</span>
+        </div>
+        <div data-key="l" class="drum-key">
+          <kbd class="keystroke">L</kbd>
+          <span class="sound">TINK</span>
+        </div>
+      </div>
+    </div>
+
+    <audio data-key="a" src="sounds/clap.wav"></audio>
+    <audio data-key="s" src="sounds/hihat.wav"></audio>
+    <audio data-key="d" src="sounds/kick.wav"></audio>
+    <audio data-key="f" src="sounds/openhat.wav"></audio>
+    <audio data-key="g" src="sounds/boom.wav"></audio>
+    <audio data-key="h" src="sounds/ride.wav"></audio>
+    <audio data-key="j" src="sounds/snare.wav"></audio>
+    <audio data-key="k" src="sounds/tom.wav"></audio>
+    <audio data-key="l" src="sounds/tink.wav"></audio>
+
+    <script src="app.js"></script>
+  </body>
+</html>
