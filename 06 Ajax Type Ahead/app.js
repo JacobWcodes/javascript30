@@ -36,8 +36,22 @@ function searchCities(value, cities) {
 // 2. Whatever is returned after filter, loop through and display each separately in li as a list under the search bar ;
 function displaySearch() {
   const matchedArray = searchCities(this.value, cities);
-  matchedArray.map((place) => {});
+  const html = matchedArray
+    .map((place) => {
+      return `
+    <li class="item">${place.city}, ${place.state} ${place.population}</li>
+    `;
+    })
+    .join("");
+  ul.innerHTML = html;
 }
+
+// TODO -
+// 1. Clear ul when search input is empty;
+
+// 2. Highlight word that was searched for;
+
+// 3. Eventually find more uses for this json endpoint. Example: find neighboring cities based on geoloaction/longitude & latitude:
 
 const searchInput = document.querySelector(".search");
 
