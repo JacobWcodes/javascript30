@@ -1,0 +1,53 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  margin-top: 2em;
+  width: 20%;
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  flex-direction: column;
+}
+
+input {
+  min-width: 100%;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item {
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.064);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  width: 90%;
+  list-style: none;
+  height: 2.5em;
+  background-color: rgba(0, 0, 0, 0.055);
+  padding-left: 0.5em;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.item:nth-of-type(2n + 1) {
+  transform: skew(15deg);
+}
+
+.item:nth-of-type(2n) {
+  transform: skew(-15deg);
+}
