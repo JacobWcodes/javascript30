@@ -14,35 +14,43 @@ fetch(endpoint).then((dataBulk) =>
 function searchCities(value, cities) {
   // NOTE - Make sure to use 'return' keyword so that filtered data can be used!!!!!!!!!!!!!!!
   return cities.filter((place) => {
-    // making sure everything is lower case
-    const lowerCity = place.city.toLowerCase();
-    const lowerState = place.state.toLowerCase();
+    const regex = new RegExp(value, "gi"); // 'g' is for 'global' search. 'i' is for case insensitivity.
     // NOTE - Make sure to use 'return' keyword so that filtered data can be used!!!!!!!!!!!!!!!
-    return lowerCity.match(value) || lowerState.match(value);
+    return place.city.match(regex) || place.state.match(regex);
   });
 }
-// ----------------------------
-// Alternative to above filter by using regular expressions:
-// function searchCities(value, cities) {
-//   // NOTE - Make sure to use 'return' keyword so that filtered data can be used!!!!!!!!!!!!!!!
-//   return cities.filter((place) => {
-//     const regex = new RegExp(value, "gi"); // 'g' is for 'global' search. 'i' is for case insensitivity.
-//     // NOTE - Make sure to use 'return' keyword so that filtered data can be used!!!!!!!!!!!!!!!
-//     return place.city.match(regex) || place.state.match(regex);
-//   });
-// }
-// ---------------------------
+
+// find function to add commas to population number:
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 // 2. Whatever is returned after filter, loop through and display each separately in li as a list under the search bar ;
 function displaySearch() {
   if (!searchInput.value) {
-    ul.innerHTML = ""; // Clear ul if search is empty;
+    ul.innerHTML = `<li class="item">Filter For A City</li>
+        <li class="item">Or A State</li>`; // Clear ul if search is empty;
   } else {
     const matchedArray = searchCities(this.value, cities);
     const html = matchedArray
       .map((place) => {
+        // Highlight searched for word in results:
+        const regex = new RegExp(this.value, "gi");
+        const cityName = place.city.replace(
+          regex,
+          `<span class='hl'>${this.value}</span>`
+        );
+        const stateName = place.state.replace(
+          regex,
+          `<span class='hl'>${this.value}</span>`
+        );
         return `
-      <li class="item">${place.city}, ${place.state} ${place.population}</li>`;
+          <li class="item">
+            <span class="cityState">${cityName}, ${stateName}</span>
+            <span class='population'>${numberWithCommas(
+              place.population
+            )}</span>
+        </li>`;
       })
       .join("");
 
@@ -51,11 +59,14 @@ function displaySearch() {
 }
 
 // TODO -
-// 1. Clear ul when search input is empty;
 
-// 2. Highlight word that was searched for;
+// 2.
 
-// 3. Eventually find more uses for this json endpoint. Example: find neighboring cities based on geoloaction/longitude & latitude:
+// 3. Refine font sizes of results
+
+// 4. Add styles to the whole page
+
+//  Eventually find more uses for this json endpoint. Example: find neighboring cities based on geoloaction/longitude & latitude:
 
 const searchInput = document.querySelector(".search");
 
