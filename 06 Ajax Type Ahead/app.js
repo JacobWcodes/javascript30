@@ -35,15 +35,19 @@ function searchCities(value, cities) {
 
 // 2. Whatever is returned after filter, loop through and display each separately in li as a list under the search bar ;
 function displaySearch() {
-  const matchedArray = searchCities(this.value, cities);
-  const html = matchedArray
-    .map((place) => {
-      return `
-    <li class="item">${place.city}, ${place.state} ${place.population}</li>
-    `;
-    })
-    .join("");
-  ul.innerHTML = html;
+  if (!searchInput.value) {
+    ul.innerHTML = ""; // Clear ul if search is empty;
+  } else {
+    const matchedArray = searchCities(this.value, cities);
+    const html = matchedArray
+      .map((place) => {
+        return `
+      <li class="item">${place.city}, ${place.state} ${place.population}</li>`;
+      })
+      .join("");
+
+    ul.innerHTML = html;
+  }
 }
 
 // TODO -
