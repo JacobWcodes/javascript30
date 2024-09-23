@@ -32,10 +32,16 @@ h1 {
   min-height: 2em;
   align-items: center;
   border-top: 1px solid rgba(128, 128, 128, 0.434);
+  transition: all 0.15s ease-in-out;
 }
 
 .item:first-child {
   border-top: 0;
+}
+
+.item:has(input[type="checkbox"]:checked) {
+  background-color: rgba(179, 173, 230, 0.406);
+  text-decoration: line-through;
 }
 
 p {
@@ -47,8 +53,4 @@ p {
 input[type="checkbox"] {
   margin: 10px;
   opacity: 0.8;
-}
-
-input:checked + p {
-  background-color: rgba(179, 173, 230, 0.406);
 }
