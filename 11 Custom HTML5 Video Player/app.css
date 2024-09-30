@@ -24,13 +24,9 @@ body {
   max-width: 50%;
 }
 
-video {
-  display: flex;
-  width: 100%;
-  max-height: 90vh;
-}
-
-.controls {
+.player:hover .controls {
+  visibility: visible;
+  opacity: 1;
   display: flex;
   flex-direction: row;
   background-color: black;
@@ -38,6 +34,46 @@ video {
   height: 2em;
   align-items: center;
 }
+
+video {
+  display: flex;
+  width: 100%;
+  max-height: 90vh;
+}
+
+.player:hover .progress,
+.player:hover .progress-filled {
+  height: 0.5em;
+}
+
+.progress {
+  width: 100%;
+  height: 0.2em;
+  background-color: grey;
+  transition: height 0.2s ease;
+}
+
+.progress-filled {
+  background-color: white;
+  width: 0%;
+  height: 0.2em;
+  z-index: 9;
+  transition: height 0.2s ease;
+  max-width: 100%;
+}
+
+.controls {
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  justify-content: space-evenly;
+  height: 2em;
+  align-items: center;
+  transition: visibility 0s, opacity 0.5s ease;
+}
+
 .controls input {
   background-color: black;
   max-width: 23%;
@@ -50,6 +86,10 @@ video {
   color: white;
   text-wrap: nowrap;
   border: none;
+}
+
+.controls button:hover {
+  transform: scale(1.2);
 }
 
 .controls button:nth-of-type(last) {
